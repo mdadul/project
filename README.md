@@ -14,7 +14,7 @@
 2. Object
 3. Generic Class
 4. Operator Overloading 
-# 2. Student Management system - C
+## 2. Student Management system - C ##
 
 * Features
 1. Show Records
@@ -28,7 +28,7 @@
 2. Pointer
 3. Structure 
 
-# 3. Student Management system - C++
+## 3. Student Management system - C++##
 *Features :
 1. Show data 
 2. Add data 
