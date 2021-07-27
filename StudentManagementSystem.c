@@ -31,6 +31,42 @@ void reset () {
   printf("\033[0m");
 }
 
+// Gotoxy Function 
+void gotoxy(int x, int y)
+{
+	printf("\033[%d;%dH",y,x);
+}
+
+// Drawing a line 
+void drawline(int x1, int y1, int x2,int y2,char ch,char c)
+{
+    int i;
+    if(x1==x2){
+        for(i=y1;i<y2;i++){
+           gotoxy(x1,i);
+           printf("%c",c);
+	}
+    }
+    else{
+        for(i=x1;i<x2;i++)
+	{
+	   gotoxy(i,y1);
+	   printf("%c",ch);
+	}
+   }
+}
+
+// Rectangle Drawing
+void drawrect(int x1, int y1, int x2, int y2,char ch,char c)
+{
+	drawline(x1, y1, x2, y1,ch,c);
+	drawline(x2, y1, x2, y2,ch,c);
+	drawline(x1, y1, x1, y2,ch,c);
+	drawline(x1, y2, x2, y2,ch,c);
+	
+}
+
+
 // Structure of Student
 struct Student{
   char name[200], ID[20],email[60], password[50];
