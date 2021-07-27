@@ -67,47 +67,14 @@ void drawrect(int x1, int y1, int x2, int y2,char ch,char c)
 }
 
 
-// Structure of Student
+// Structure of Students 
+
 struct Student{
   char name[200], ID[20],email[60], password[50];
   int semester;
+  char mobile[30];
   double cgpa[10];
 };
-
-// Password Checker
-
-bool PasswordChecker(char pass[])
-{
-	int capital=0,small=0,digit=0,other=0	,i,len=0;
-	len = strlen(pass);
-	for(i=0;i<len;i++)
-	{
-		if(pass[i]>='A' && pass[i]<='Z')
-		{
-			capital++;
-		}
-		else if(pass[i]>='a' && pass[i]<='z')
-		{
-			small++;
-		}
-		else if(pass[i]>='0' && pass[i]<='9')
-		{
-			digit++;
-		}
-		else
-		{
-			other++;
-		}
-	}
-	if(len>=8 && capital>=1 && small>=1 && other>=1)
-	{
-		return true;
-		}
-		else
-		{
-			return false;
-		}
-}
 
 			
 typedef struct Student STD;
@@ -116,21 +83,25 @@ typedef struct Student STD;
 char filePath[100] = "input.txt";
 
 // Get All records from file ... 
-int getRecords(STD stdList[])
+
+int getRecords(STD stdList[],int x)
 {
-  FILE *fp = fopen(filePath, "r"); 
-  
+	int i, n = 0;
+  if(x==0){
+     FILE *fp = fopen(filePath, "r"); 
+       if(fp == 0) {
+  	   red();
+       printf("Cannt open file\n");
+       return -1;
+     }
+       
   STD aStd;
-  if(fp == 0) {
-  	red();   // Text color 
-    printf("Cannt open file\n");
-    return -1;
-  }
+
   /// Showing all records
-  int i, n = 0;
+  
   while(fgets(aStd.name, sizeof aStd.name, fp) != NULL)
   {
-    fscanf(fp, "%s%s%d", aStd.ID,aStd.email, &aStd.semester);
+    fscanf(fp, "%s%s%s%d", aStd.ID,aStd.email,aStd.mobile, &aStd.semester);
     
     for(int i=1; i<=8; i++)
     {
@@ -140,6 +111,7 @@ int getRecords(STD stdList[])
     strcpy(stdList[n].name, aStd.name);
     strcpy(stdList[n].ID, aStd.ID);
     strcpy(stdList[n].email,aStd.email);
+    strcpy(stdList[n].mobile,aStd.mobile);
     stdList[n].semester = aStd.semester;
     
     for(i=1; i<=8; i++)
@@ -150,45 +122,99 @@ int getRecords(STD stdList[])
   }
   fclose(fp);
   return n;
+  }
+  else
+  {
+  	FILE *fp = fopen("RecycleBin.txt","r");
+  	  
+  STD aStd;
+
+  /// Showing all records
+  
+  while(fgets(aStd.name, sizeof aStd.name, fp) != NULL)
+  {
+    fscanf(fp, "%s%s%s%d", aStd.ID,aStd.email,aStd.mobile, &aStd.semester);
+    
+    for(int i=1; i<=8; i++)
+    {
+      fscanf(fp,"%lf",&aStd.cgpa[i]);
+    }
+    fscanf(fp,"\n");
+    strcpy(stdList[n].name, aStd.name);
+    strcpy(stdList[n].ID, aStd.ID);
+    strcpy(stdList[n].email,aStd.email);
+    strcpy(stdList[n].mobile,aStd.mobile);
+    stdList[n].semester = aStd.semester;
+    
+    for(i=1; i<=8; i++)
+    {
+      stdList[n].cgpa[i] = aStd.cgpa[i];
+    }
+    n++;
+  }
+  fclose(fp);
+  return n;
+  }
+
 }
 
-/////ShowRecords function to show all records from file
+
+
+
+
+
+
+
+//  ShowRecords function to show all records from file
+
 
 void showRecords()
 {
   STD stdList[100];
-  int i, j,n = getRecords(stdList);
-  
-  red();    // text color
-
-  printf("\n\n\t\t\t===Student Record===\n\n");
-  
-  reset();   // text color reset
-
+  int i, j,n = getRecords(stdList,0);
+  if(n==0){
+  	 printf("There is no record. Please, add record.\n"); 
+  	 return;
+  } 
+  gotoxy(12, 2);
+  cyan();
+  printf("Student Record");
+  printf("\n\n");
+  reset();
   for(i = 0; i < n; i++) {
+  	
+  	if(i%3==0) green();
+  	else if(i%3==1)cyan();
+  	else white();
+  	
   	
     printf("Name    : %s", stdList[i].name);
     printf("ID      : %s\n", stdList[i].ID);
     printf("E-mail  : %s\n",stdList[i].email);
+    printf("Mobile  : %s\n",stdList[i].mobile);
     printf("Semester: %d\n",stdList[i].semester);
     printf("CGPA    : ");
     for(j=1; j<=8; j++)
     {
       printf("%.2lf ",stdList[i].cgpa[j]);
     }
+    reset();
     printf("\n\n");
   }
 }
-//=====END====///
+
 
 //=====Add Record Function start===//
+
 void addRecord()
 {
-	red();   // text color 
-	printf("\n\t\t=====Add Record======\n\n");
-	reset();   // to reset text color 
+  white();
+  gotoxy(12, 2);
+  printf("Add Record");
+  printf("\n\n");
+	reset();
   STD stdList[100];
-  int n = getRecords(stdList);
+  int n = getRecords(stdList,0);
   
   FILE *fp = fopen(filePath, "a");
   
@@ -201,7 +227,7 @@ void addRecord()
   {
     if(strcmp(add.ID,stdList[i].ID)==0)
     {
-      printf("Duplicate Matric Id\nEnter another info\n");
+      printf("\n\n\tDuplicate Matric Id\nEnter another info\n");
       flag=1;
     }
   }
@@ -212,6 +238,8 @@ void addRecord()
     scanf(" %[^\n]",add.name);
     printf("\nEnter your email:");
     scanf("%s",add.email);
+    printf("\nEnter your mobile no :");
+    scanf("%s",add.mobile);
     printf("\nEnter your Semester no: ");
     scanf(" %d",&add.semester);
     for(int i=1; i<add.semester; i++)
@@ -223,6 +251,7 @@ void addRecord()
      fprintf(fp,"\n%s\n", add.name);
      fprintf(fp,"%s\n", add.ID);
      fprintf(fp,"%s\n",add.email);
+     fprintf(fp,"%s\n",add.mobile);
      fprintf(fp,"%d\n", add.semester);
      for(i=add.semester;i<=8;i++)
      {
@@ -240,12 +269,15 @@ void addRecord()
  
   fclose(fp);
 }
-//=====Delete Record By ID======//
 
+
+//=====Delete Record By ID======//
 void deleteRecord()
 {
-	purple();
-	printf("\n\t\t=====Delete Record======\n\n");
+	white();
+  gotoxy(12, 2);
+  printf("Delete Record");
+  printf("\n\n");
 	reset();
 	
   printf("\nPlease, Enter your Id: ");
@@ -253,26 +285,36 @@ void deleteRecord()
   scanf("%s",ID);
   
   STD stdList[100];
-  int i,j, n = getRecords(stdList);
+  int i,j, n = getRecords(stdList,0);
   double max=-1;
 
   FILE *fp = fopen(filePath, "w");
+  FILE *Rc = fopen("RecycleBin.txt","a");
   
   //===i. delete record ===//
     
   for(int i = 0; i < n; i++)
   {
     if(strcmp(stdList[i].ID, ID) != 0) {
-      fprintf(fp, "%s%s\n%s\n%d\n", 
-        stdList[i].name, stdList[i].ID, stdList[i].email, stdList[i].semester);
+      fprintf(fp, "%s%s\n%s\n%s\n%d\n", 
+        stdList[i].name, stdList[i].ID, stdList[i].email,stdList[i].mobile, stdList[i].semester);
       for(j=1; j<=8; j++)
       {
         fprintf(fp,"%.2f ",stdList[i].cgpa[j]);
       }
       fprintf(fp,"\n");
     }
+    else
+    {
+    	fprintf(Rc, "%s%s\n%s\n%s\n%d\n", stdList[i].name, stdList[i].ID, stdList[i].email,stdList[i].mobile, stdList[i].semester);
+      for(j=1; j<=8; j++)
+      {
+        fprintf(Rc,"%.2f ",stdList[i].cgpa[j]);
+      }
+      fprintf(Rc,"\n");
+    }
   }
-  // show deleted id's highest Cgpa in which semester 
+  //===ii=====
   for(i=0; i<n; i++)
   {
     if(strcmp(stdList[i].ID,ID)==0)
@@ -286,35 +328,41 @@ void deleteRecord()
           max = stdList[i].cgpa[j];
         }
       }
-      printf("Highest CGPA : %.2lf\n",max);
+      printf("\n\nHighest CGPA : %.2lf\n",max);
       printf("Semester     : ");
       for(j=1; j<=8; j++)
       {
         
         if(max==stdList[i].cgpa[j])
         {
-          printf("%d, ",j-1);
+          printf("%d, ",j);
         }
       }
       printf("\n");
     }
   }
   fclose(fp);
+  fclose(Rc);
 }
 
+
+
 /// Update Record 
+
 void update()
 {
-	purple();
-	printf("\n\t\t=====Update Record======\n\n");
+  white();
+  gotoxy(12, 2);
+  printf("Update Record");
+  printf("\n\n");
 	reset();
 	
   printf("\nPlease Enter your Id: ");
   char id[100];
   scanf("%s",id);
   STD stdList[100];
-  int i,j,n=getRecords(stdList);
-  /// if user write " GPA" then, update his/her cgpa  and write "EMAIL", update email address 
+  int i,j,n=getRecords(stdList,0);
+  
   double newCGPA;
   int updatesem;
   char newMail[50],ch[50];
@@ -352,6 +400,7 @@ void update()
     fprintf(fp,"%s",stdList[i].name);
     fprintf(fp,"%s\n",stdList[i].ID);
     fprintf(fp,"%s\n",stdList[i].email);
+    fprintf(fp,"%s\n",stdList[i].mobile);
     fprintf(fp,"%d\n",stdList[i].semester);
     for(j=1;j<=8; j++)
     {
@@ -362,6 +411,7 @@ void update()
   fclose(fp);
 }
 
+
 // This function save a text file of any id 
 void SaveAsTextFile()
 {
@@ -369,7 +419,7 @@ void SaveAsTextFile()
 	char id	[50];
 	scanf("%s",id);
 	STD stdList[100];
-	int i,j,flag=0,n=getRecords(stdList);
+	int i,j,flag=0,n=getRecords(stdList,0);
 	
 	char txt[100];
 	strcpy(txt,id);
@@ -389,6 +439,7 @@ void SaveAsTextFile()
 			fprintf(tx, "Name         : %s",stdList[i].name);
 			fprintf(tx, "ID                 : %s\n",stdList[i].ID);
 			fprintf(tx, "Email          : %s\n",stdList[i].email);
+			fprintf(tx, "Mobile         : %s\n",stdList[i].mobile);
 			fprintf(tx, "Semester    : %d\n",stdList[i].semester);
 			fprintf(tx, "CGPA           : ");
 			for(j=1;j<=8;j++)
@@ -400,6 +451,62 @@ void SaveAsTextFile()
 	if(flag==0) printf("Id Not Found\n");
 	fclose(tx);
 }
+// sorting Record 
+
+void sort()
+{
+	STD stds[1000];
+	int n = getRecords(stds,0), i, f, j, k;
+	char temp[100];
+	for(i = 0; i < n; i++) {
+		for(j = i + 1; j < n; j++)
+			if(strcmp(stds[i].ID, stds[j].ID) < 1) {
+				strcpy(temp, stds[i].ID);
+				strcpy(stds[i].ID, stds[j].ID);
+				strcpy(stds[j].ID, temp);
+			}
+	}
+	for(i = 0; i < n; i++) {
+		printf("%s\n", stds[i].ID);
+	}
+}
+
+// Show deleted records from recycle Bin.
+void showRecycle()
+{
+  STD stdList[100];
+  int i, j,n = getRecords(stdList,1);
+  if(n==0){
+  	 printf("Empty Recyle Bin \n"); 
+  	 return;
+  } 
+  gotoxy(12, 2);
+  cyan();
+  printf("Recycle Bin");
+  printf("\n\n");
+  reset();
+  for(i = 0; i < n; i++) {
+  	
+  	if(i%3==0) green();
+  	else if(i%3==1)cyan();
+  	else white();
+  	
+  	
+    printf("Name    : %s", stdList[i].name);
+    printf("ID      : %s\n", stdList[i].ID);
+    printf("E-mail  : %s\n",stdList[i].email);
+    printf("Mobile  : %s\n",stdList[i].mobile);
+    printf("Semester: %d\n",stdList[i].semester);
+    printf("CGPA    : ");
+    for(j=1; j<=8; j++)
+    {
+      printf("%.2lf ",stdList[i].cgpa[j]);
+    }
+    reset();
+    printf("\n\n");
+  }
+}
+
 	
 ///Main Function  
 
