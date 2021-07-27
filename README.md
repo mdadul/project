@@ -22,11 +22,15 @@
 3. Update Records 
 4. Delete Records
 5. Specific info save in new file 
+6. Recycle Bin 
+7. Sort 
 
 * Learning Outcome 
 1. File
 2. Pointer
 3. Structure 
+### Screenshot 
+
 
 ## 3. Student Management system - C++##
 *Features :
