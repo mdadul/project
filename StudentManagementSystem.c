@@ -370,27 +370,35 @@ void SaveAsTextFile()
 
 int main()
 {
-	printf("\n\t ");
-	system("date");  // print date & time.  
-	printf("\n\n");
-	red();
-	printf("================================================\n");
-   printf("\t\tWelcome To Student Management Solution\n");
-   printf("\t\tDeveloped By: Emdadul Islam\n");
-	printf("================================================\n");
-	reset();
-	purple();
-   printf("\t\t\t--------------------\n");
-   printf("\t\t\t\t\tMenu\n");
-    printf("\t\t\t--------------------\n");
-	reset();
-	blue();
-   printf("\nPlease Enter a number upto 4 to choose option\n\n ");
-   int choice;
-   while(1)
-   {
-   	red();
-     printf("\t\t1. Show info.\n\t\t2. Add record\n\t\t3. Delete Record\n\t\t4. Update Record\n\t\t5. Sort Record\n\t\t6. Save As Txt file\n\t\t7. Exit\n");
+
+  cyan();
+  drawrect(1, 0, 46, 4, '~','+');
+  yellow();
+  gotoxy(5, 1);
+  printf("Welcome To Student Management Solution");
+  gotoxy(7, 2);
+  printf("Developed By: Emdadul Islam");
+  gotoxy(15, 5);
+  yellow();
+  printf("\n╭╮╭╮╭╮╱╱╭╮\n");
+  printf("┃┃┃┃┃┃╱╱┃┃\n");
+  printf("┃┃┃┃┃┣━━┫┃╭━━┳━━┳╮╭┳━━╮\n");
+  printf("┃╰╯╰╯┃┃━┫┃┃╭━┫╭╮┃╰╯┃┃━┫\n");
+  printf("╰╮╭╮╭┫┃━┫╰┫╰━┫╰╯┃┃┃┃┃━┫\n");
+  printf("╱╰╯╰╯╰━━┻━┻━━┻━━┻┻┻┻━━╯\n");
+	
+	
+  drawrect(15, 13,35,15, '+','!');
+  gotoxy(23, 14);
+  green();
+  printf("Menu");
+  gotoxy(1, 17);
+  printf("Please Enter a number upto 4 to choose option\n\n\n");
+  int choice;
+  while(1)
+  {
+     cyan();
+     printf("\t\t1. Show info.\n\t\t2. Add record\n\t\t3. Delete Record\n\t\t4. Update Record\n\t\t5. Sort Record\n\t\t6. Save As Txt file\n\t\t7. Recycle Bin\n\t\t8. Exit\n");
      scanf("%d",&choice);
      system("cls");
      switch(choice)
@@ -408,16 +416,20 @@ int main()
          update();
          break;
        case 5:
-         //sort();
+         sort();
          break;
        case 6:
           SaveAsTextFile();
           break;
        case 7:
+       	showRecycle();
+        break;
+       case 8:
          exit(1);
          break;
      }
    }
+
   return 0;
 }
 
