@@ -1,9 +1,9 @@
 # Project
 
-1. Queue Management Project by C++
-2. Student Management Project by C programming 
-3. Student management Project by C++ 
-4. Book Shop management project by java
+1. [Queue Management Project by C++](https://github.com/mdadul/project#1-queue-management-project)
+2. [Student Management Project by C programming](https://github.com/mdadul/project#2-student-management-system---c-programming)
+3. [Student management Project by C++](https://github.com/mdadul/project#3-student-management-system---c) 
+4. [Book Shop management project by java](https://github.com/mdadul/project#4-book-shop-management-system---java)
 
 # 1. [Queue Management Project](https://github.com/mdadul/project/blob/main/Queue_management.cpp)
 * Feature
