@@ -56,5 +56,8 @@
   * Class 
   * Handle array of objects 
 ## 5. [Simple Chatty BOT - GoLang](https://github.com/mdadul/project/blob/main/SimpleChattyBot.go)
-
+* Feature
+  1. Guess Age
+  2. Count
+  3. Question ans check
 
