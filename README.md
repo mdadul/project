@@ -5,7 +5,7 @@
 3. Student management Project by C++ 
 4. Book Shop management project by java
 
-# 1. Queue Management Project #
+# 1. [Queue Management Project](https://github.com/mdadul/project/blob/main/Queue_management.cpp)
 * Feature
   1. Add
   2. Remove 
@@ -17,7 +17,7 @@
   3. Generic Class
   4. Operator Overloading 
 
-## 2. Student Management system - C Programming 
+## 2. [Student Management system - C Programming](https://github.com/mdadul/project/blob/main/StudentManagementSystem.c)
 
 * Features
   1. Show Records
@@ -34,7 +34,7 @@
   3. Structure 
 
 
-## 3. Student Management system - C++
+## 3. [Student Management system - C++](https://github.com/mdadul/project/blob/main/StudentManagementSystem.cpp)
 * Features 
   1. Show data 
   2. Add data 
