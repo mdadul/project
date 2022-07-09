@@ -42,7 +42,7 @@
   4. Delete
 
 
-## 4. [Book shop management system - Java] (https://github.com/mdadul/project/blob/main/BookShop_Management_System.java)
+## 4. [Book shop management system - Java](https://github.com/mdadul/project/blob/main/BookShop_Management_System.java)
 * Feature 
   1. Add book
   2. Update Book
