@@ -5,7 +5,7 @@
 3. [Student management Project by C++](https://github.com/mdadul/project#3-student-management-system---c) 
 4. [Book Shop management project by java](https://github.com/mdadul/project#4-book-shop-management-system---java)
 5. [Simple Chatty Bot - Golang](https://github.com/mdadul/project#5-simple-chatty-bot---golang)
-6. [Cricket Score Management System - Oracle Apex](https://github.com/mdadul/project/blob/main/README.md#cricket-score-management-system-project---oracle-apex)
+6. [Cricket Score Management System - Oracle Apex](https://github.com/mdadul/project#6-cricket-score-management-system-project---oracle-apex)
 
 # 1. [Queue Management Project](https://github.com/mdadul/project/blob/main/Queue_management.cpp)
 * Feature
