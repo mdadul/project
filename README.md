@@ -5,6 +5,7 @@
 3. [Student management Project by C++](https://github.com/mdadul/project#3-student-management-system---c) 
 4. [Book Shop management project by java](https://github.com/mdadul/project#4-book-shop-management-system---java)
 5. [Simple Chatty Bot - Golang](https://github.com/mdadul/project#5-simple-chatty-bot---golang)
+6. [Cricket Score Management System - Oracle Apex) ()
 
 # 1. [Queue Management Project](https://github.com/mdadul/project/blob/main/Queue_management.cpp)
 * Feature
@@ -61,3 +62,40 @@
   2. Count
   3. Question ans check
 
+# Cricket Score Management System Project - Oracle Apex
+----------------------
+I have developed an application by oracle apex. 
+
+The application entitled "CRICKET SCORE MANAGEMENTSYSTEM " which is utilized by the user with an update of the cricket even when the user is not watching the match.Each and every match details such as the description about the team and team members will be stored in the database. Each and every match can be updated lively. As soon as someone checks the scoreboard, details of a particular player can be viewed by his id. This project aims to make a cricket score board that will update the scores of a  match.
+
+## Basic Features
+* Player Details 
+* Match Details
+* Team Details
+* Venue Details
+* Score (Batting , Bowling , Fall of wickets)
+* Coach Details 
+
+
+#### *To see the application as a reader just log in.*
+
+### Log in credential:
+---------------------
+
+**Username**  : Reader 
+
+**Password**   : demoreader
+
+**Application link:**
+ https://lnkd.in/de6DSwac
+ 
+ 
+**Preview (Video)**
+[Video](https://youtu.be/aj18lrhzzYo)
+<div style="position: relative; width: 100%; padding-bottom: 56.25%">
+<iframe src="https://www.youtube.com/embed/aj18lrhzzYo" 
+        title="Cricket score management system project .#oracleapex #cricket #cricketscoremanagement" frameborder="0" allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        style="position: absolute; width: 100%; height: 100%;">
+</iframe>
+</div>
