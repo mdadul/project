@@ -92,12 +92,3 @@ The application entitled "CRICKET SCORE MANAGEMENTSYSTEM " which is utilized by 
  
 **Preview (Video)**
 [Video](https://youtu.be/aj18lrhzzYo)
-
-
-<div style="position: relative; width: 100%; padding-bottom: 56.25%">
-<iframe src="https://www.youtube.com/embed/aj18lrhzzYo" 
-        title="Cricket score management system project .#oracleapex #cricket #cricketscoremanagement" frameborder="0" allowfullscreen
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        style="position: absolute; width: 100%; height: 100%;">
-</iframe>
-</div>
