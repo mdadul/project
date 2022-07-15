@@ -85,12 +85,14 @@ The application entitled "CRICKET SCORE MANAGEMENTSYSTEM " which is utilized by 
 **Username**  : Reader 
 
 **Password**   : demoreader
-
+-----------------------
 **Application link:**
  https://lnkd.in/de6DSwac
  
 **Preview (Video)**
 [Video](https://youtu.be/aj18lrhzzYo)
+
+
 **Screenshot**
 
 <img src="csmsl.png" alt="Log in" width=250 height=250>
