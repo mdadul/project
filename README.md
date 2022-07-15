@@ -6,6 +6,7 @@
 4. [Book Shop management project by java](https://github.com/mdadul/project#4-book-shop-management-system---java)
 5. [Simple Chatty Bot - Golang](https://github.com/mdadul/project#5-simple-chatty-bot---golang)
 6. [Cricket Score Management System - Oracle Apex](https://github.com/mdadul/project#6-cricket-score-management-system-project---oracle-apex)
+7. [In-memory Notepad CLI- Golang]()
 
 # 1. [Queue Management Project](https://github.com/mdadul/project/blob/main/Queue_management.cpp)
 * Feature
@@ -96,3 +97,12 @@ The application entitled "CRICKET SCORE MANAGEMENTSYSTEM " which is utilized by 
 **Screenshot**
 
 <img src="csmsl.png" alt="Log in" width=250 height=250>
+
+## 7. [In-memory Notepad CLI - Golang]()
+A simple in-memory database that supports CRUD operations. 
+* Learning Outcome
+   * slices
+   * loops
+   * string formatting
+   * standard IO 
+   * and the bufio scanner.
