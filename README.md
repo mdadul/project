@@ -62,7 +62,7 @@
   2. Count
   3. Question ans check
 
-## 6. [Cricket Score Management System Project - Oracle Apex]()
+## 6. [Cricket Score Management System Project - Oracle Apex](https://github.com/mdadul/project/blob/main/CSMS.sql)
 ----------------------
 I have developed an application by oracle apex. 
 
